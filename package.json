@@ -1,0 +1,19 @@
+{
+  "name": "occasionme",
+  "version": "1.0.0",
+  "description": "occasion app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waltershub/OccasionMe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waltershub/OccasionMe/issues"
+  },
+  "homepage": "https://github.com/waltershub/OccasionMe#readme"
+}
