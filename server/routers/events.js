@@ -5,6 +5,6 @@ const eventsController = require('../controllers/events');
 
 router
   .get('', eventsController.all)
-  .get('/:id', eventsController.show)
+  .get('/:id', eventsController.show);
 
 module.exports = router;
