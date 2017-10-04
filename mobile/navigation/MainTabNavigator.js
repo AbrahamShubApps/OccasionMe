@@ -8,6 +8,7 @@ import Colors from '../constants/Colors';
 import HomeScreen from '../screens/HomeScreen';
 import camerascreen from '../screens/camerascreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import mapscreen from '../screens/mapscreen';
 
 export default TabNavigator(
   {
@@ -19,6 +20,9 @@ export default TabNavigator(
     },
     Settings: {
       screen: SettingsScreen,
+    },
+    Directions: {
+      screen: mapscreen,
     },
   },
   {
@@ -40,6 +44,9 @@ export default TabNavigator(
           case 'Settings':
             iconName =
               Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+            break;
+          case 'Directions':
+            iconName = Platform.OS === 'ios' ? `ios-map${focused ? '' : '-outline'}` : 'md-map';
         }
         return (
           <Ionicons
