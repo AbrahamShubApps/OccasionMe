@@ -7,7 +7,7 @@ delegated to aws cognito
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-hostId      | integer   | not null, foreign key, references: users
+hostId      | integer   | not null, foreign key, references: title       | string    | not null
 
 ## events
 column name    | data type | details

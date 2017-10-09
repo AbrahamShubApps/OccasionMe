@@ -1,5 +1,6 @@
 {
   hostName: "Hyme Cohen",
+  title: "Sarah and Avraham's wedding"
   events: [
     {
       id: 312,
@@ -16,7 +17,7 @@
     },
     {
       id: 345,
-      type: 'reception',
+      type: 'Reception',
       locationName: 'RAZAG Ballroom',
       address: '739 E New York Ave',
       city: 'Brooklyn',
