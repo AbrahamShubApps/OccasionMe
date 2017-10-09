@@ -1,6 +1,7 @@
 {
+  id: 1,
   hostName: "Hyme Cohen",
-  title: "Sarah and Avraham's wedding"
+  title: "Sarah and Avraham's wedding",
   events: [
     {
       id: 312,
@@ -13,7 +14,7 @@
       coords: {
         lat: 40.6690,
         lng: -73.9429,
-      }
+      },
     },
     {
       id: 345,
@@ -27,6 +28,6 @@
         lat: 40.6625,
         lng: -73.9380,
       },
-    }
+    },
   ],
 }
