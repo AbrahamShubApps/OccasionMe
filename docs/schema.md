@@ -13,6 +13,7 @@ hostId      | integer   | not null, foreign key, references: users
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
+type           | string    | not null
 eventGroupId   | integer   | not null, foreign key, references: eventGroups
 location       | TBD       |
 
