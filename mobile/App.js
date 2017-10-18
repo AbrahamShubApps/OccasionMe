@@ -5,9 +5,19 @@ import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from 'redux-logger';
+import asyncAwait from 'redux-async-await';
+import rootReducer from './redux/reducers/rootReducer';
 
-const initialState = { user: 'walter' };
+const initialState = {};
 //export const store = createStore(initialState);
+
+export const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(thunkMiddleware, asyncAwait, loggerMiddleware)
+);
 
 export default class App extends React.Component {
   state = {
@@ -25,7 +35,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <Provider store={initialState}>
+        <Provider store={store}>
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
             {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
