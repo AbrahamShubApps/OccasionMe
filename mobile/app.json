@@ -14,9 +14,9 @@
       "color": "#000000"
     },
     "loading": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#000000",
       "backgroundImage": "./assets/images/splashOcc.png",
-      "icon": "./assets/icons/loading.png"
+
     },
     "splash": {
       "image":"./assets/images/splashOcc.png",

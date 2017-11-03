@@ -4,11 +4,25 @@ import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
-
+import SplashScreen from '../screens/splashscreen';
+import LoginScreen from '../screens/login/LoginScreen';
+import SignupScreen from '../screens/login/SignupScreen';
 const RootStackNavigator = StackNavigator(
   {
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: {
+        header: false,
+      },
+    },
+    Login: {
+      screen: LoginScreen,
+    },
     Main: {
       screen: MainTabNavigator,
+    },
+    Signup: {
+      screen: SignupScreen,
     },
   },
   {
@@ -41,14 +55,10 @@ export default class RootNavigator extends React.Component {
     registerForPushNotificationsAsync();
 
     // Watch for incoming notifications
-    this._notificationSubscription = Notifications.addListener(
-      this._handleNotification
-    );
+    this._notificationSubscription = Notifications.addListener(this._handleNotification);
   }
 
   _handleNotification = ({ origin, data }) => {
-    console.log(
-      `Push notification ${origin} with data: ${JSON.stringify(data)}`
-    );
+    console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
   };
 }

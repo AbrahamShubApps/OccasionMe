@@ -9,7 +9,7 @@ import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from 'redux-logger';
 import asyncAwait from 'redux-async-await';
 import rootReducer from './redux/reducers/rootReducer';
-import db from './db/database';
+import db from './db';
 
 const initialState = {};
 //export const store = createStore(initialState);
