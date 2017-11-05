@@ -30,6 +30,7 @@ class SplashScreen extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log('componentDidUpdate', arguments);
     if (this.props.isLoggedIn) {
       this.notifications();
       console.log('[SplashScreen] --> navigate to main');

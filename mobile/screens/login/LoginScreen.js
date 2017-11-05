@@ -117,6 +117,7 @@ class Login extends Component {
   }
 
   _navigateTo(routeName) {
+    console.log('here');
     const actionToDispatch = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName })],
