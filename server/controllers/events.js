@@ -2,7 +2,6 @@ const { Event, EventGroup } = require('../models');
 
 const index = (req, res) => {
   console.log('events')
-  Event.destroy({eventGroupId: null});
   return Event
     .all()
     .then(events => res.status(200).send(events))
@@ -23,12 +22,18 @@ const show = (req, res) => {
 };
 
 const create = (req, res) => {
-  if (!EventGroup.find(req.params.eventGroupId)) return res.status(404).send({ message: 'Invalid Event Group' });
+  console.log('creating event')
+  if (!EventGroup.findById(req.params.eventGroupId)) return res.status(404).send({ message: 'Invalid Event Group' });
   return Event
     .create({
       type: req.body.type,
-      location: req.body.location,
-      eventGroupId: EventGroup.find(req.params.eventGroupId),
+      locationName: req.body.locationName,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      locationName: req.body.locationName,
+      eventGroupId: req.params.eventGroupId,
     })
     .then(event => res.status(201).send(event))
     .catch(error => res.status(400).send(error));

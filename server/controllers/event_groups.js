@@ -36,22 +36,31 @@
 
 const { EventGroup, Event } = require('../models');
 
+const withEvents = { 
+  include: [{
+    model: Event,
+    as: 'events',
+  }] 
+}
 const index = (req, res) => {
   return EventGroup
-    .findAll({ include: [{
-        model: Event,
-        as: 'events',
-      }] })
+    .findAll(withEvents)
     .then(eventGroup => res.status(200).send(eventGroup))
     .catch(error => res.status(404).send(error))
 };
 
 const show = (req, res) => {
-  res.json(sampleEvents[req.params.id])
+  return EventGroup
+    .findById(req.params.eventGroupId, withEvents)
+    .then(eventGroup => res.status(200).send(eventGroup))
+    .catch(error => res.status(404).send(error))
 };
 
 const create = (req, res) => {
-  return EventGroup.create({title: req.body.title})
+  return EventGroup.create({
+      title: req.body.title,
+      hostName: req.body.hostName,
+    })
     .then(eventGroup => res.status(201).send(eventGroup))
     .catch(error => res.status(401).send(error))
 };
