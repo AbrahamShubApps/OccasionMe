@@ -4,7 +4,9 @@
   "description": "occasion app",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "db-setup": "createdb occasionme-dev",
+    "db-migrate": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
