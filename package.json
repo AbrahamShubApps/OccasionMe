@@ -21,9 +21,16 @@
     "eslint": "^4.8.0",
     "eslint-config-expo": "^6.0.0",
     "eslintConfig": {
-      "extends": ["expo/node", "expo/web","expo/native"]
+      "extends": [
+        "expo/node",
+        "expo/web",
+        "expo/native"
+      ]
     },
     "express": "^4.16.0",
-    "prettier": "^1.7.3"
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "prettier": "^1.7.3",
+    "sequelize": "^4.22.8"
   }
 }
