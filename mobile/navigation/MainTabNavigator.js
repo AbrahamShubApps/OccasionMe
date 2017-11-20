@@ -6,19 +6,23 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import camerascreen from '../screens/camerascreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import mapscreen from '../screens/mapscreen';
 
 export default TabNavigator(
   {
     Home: {
       screen: HomeScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Camera: {
+      screen: camerascreen,
     },
     Settings: {
       screen: SettingsScreen,
+    },
+    Directions: {
+      screen: mapscreen,
     },
   },
   {
@@ -28,19 +32,21 @@ export default TabNavigator(
         let iconName;
         switch (routeName) {
           case 'Home':
-            iconName = Platform.OS === 'ios'
-              ? `ios-information-circle${focused ? '' : '-outline'}`
-              : 'md-information-circle';
+            iconName =
+              Platform.OS === 'ios'
+                ? `ios-information-circle${focused ? '' : '-outline'}`
+                : 'md-information-circle';
             break;
-          case 'Links':
-            iconName = Platform.OS === 'ios'
-              ? `ios-link${focused ? '' : '-outline'}`
-              : 'md-link';
+          case 'Camera':
+            iconName =
+              Platform.OS === 'ios' ? `ios-camera${focused ? '' : '-outline'}` : 'md-camera';
             break;
           case 'Settings':
-            iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
+            iconName =
+              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+            break;
+          case 'Directions':
+            iconName = Platform.OS === 'ios' ? `ios-map${focused ? '' : '-outline'}` : 'md-map';
         }
         return (
           <Ionicons

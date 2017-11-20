@@ -1,8 +1,25 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Image, Text } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from 'redux-logger';
+import asyncAwait from 'redux-async-await';
+import rootReducer from './redux/reducers/rootReducer';
+import db from './db';
+import SideMenu from 'react-native-side-menu';
+
+const initialState = {};
+//export const store = createStore(initialState);
+
+export const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(thunkMiddleware, asyncAwait, loggerMiddleware)
+);
 
 export default class App extends React.Component {
   state = {
@@ -10,6 +27,11 @@ export default class App extends React.Component {
   };
 
   render() {
+    const menu = (
+      <View>
+        <Text>menu</Text>
+      </View>
+    );
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -20,12 +42,15 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {Platform.OS === 'android' &&
-            <View style={styles.statusBarUnderlay} />}
-          <RootNavigation />
-        </View>
+        <Provider store={store}>
+          <SideMenu menu={menu}>
+            <View style={styles.container}>
+              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+              {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+              <RootNavigation />
+            </View>
+          </SideMenu>
+        </Provider>
       );
     }
   }
