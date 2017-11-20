@@ -1,9 +1,9 @@
 import React from 'react';
-import { signup } from '../util/session_util';
+//import { signup } from '../util/session_util';
 
 const App = props => {
-  signup('username@whatever.com', 'mypassword')
-    .then(res => console.log(res));
+//  signup('username@whatever.com', 'mypassword')
+//    .then(res => console.log(res));
   return (
     <div>
       App goes here!!!
