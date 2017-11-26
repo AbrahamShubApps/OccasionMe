@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "db-setup": "createdb occasionme-dev",
+    "db-setup-dev": "createdb occasionme-dev",
+    "db-setup-prod": "createdb occasionme-prod",
     "db-migrate": "sequelize db:migrate"
   },
   "repository": {
@@ -30,9 +31,13 @@
       ]
     },
     "express": "^4.16.0",
+    "firebase": "^4.6.2",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "prettier": "^1.7.3",
     "sequelize": "^4.22.8"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }
