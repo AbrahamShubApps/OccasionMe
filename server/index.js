@@ -10,7 +10,7 @@ const routes = require('./routers');
 
 const app = express();
 
-app.use(express.static(`${__dirname}/../web_app/dist`));
+app.use(express.static(`${__dirname}/../web_client/build`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
