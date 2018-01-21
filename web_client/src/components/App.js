@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 
 const App = props => {
-  fetch('http://localhost:3000/api/events').then(res => res.body).then(res => console.log(res))
+  fetch('/api/events').then(res => res.body).then(res => console.log(res))
   // signup('username@whatever.com', 'mypassword')
   //   .then(res => console.log(res));
   return (
