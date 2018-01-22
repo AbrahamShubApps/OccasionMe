@@ -14,7 +14,10 @@ export default {
     "dialect": "postgres"
   },
   "production": {
+    "username": 'menachem',
+    "password": null,
+    "database": "occasionme-prod",
+    "host": process.env.DATABASE_URL,
     "dialect": "postgres",
-    "host": process.env.DATABASE_URL
   }
 }
