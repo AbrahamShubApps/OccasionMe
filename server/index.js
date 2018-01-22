@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api', routes);
 
-app.listen(3000, () => {
-  console.log('listening on port 3000');
+app.listen($PORT || 3000, () => {
+  console.log(`listening on port ${$PORT || 3000}`);
 });
