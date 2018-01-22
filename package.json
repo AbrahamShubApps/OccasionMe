@@ -8,10 +8,10 @@
     "db-setup-dev": "createdb occasionme-dev",
     "db-setup-prod": "createdb occasionme-prod",
     "db-migrate": "sequelize db:migrate",
-    "global-installs": "npm install -g pg pg-hstore sequelize create-react-app",
+    "global-installs": "npm install -g pg pg-hstore sequelize react-scripts sequelize-cli",
     "run start": "node server",
     "build-bundle": "cd web_client && npm install && npm run build && cd ../",
-    "postinstal": "npm run build-bundle"
+    "postinstall": "npm run build-bundle"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,8 @@
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "prettier": "^1.7.3",
-    "sequelize": "^4.22.8"
+    "sequelize": "^4.22.8",
+    "sequelize-cli": "^3.2.0"
   },
   "devDependencies": {
     "dotenv": "^4.0.0"
