@@ -1,4 +1,4 @@
-{
+export default {
   "development": {
     "username": "menachem",
     "password": null,
@@ -14,6 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "host": process.env.DATABASE_URL
   }
 }
