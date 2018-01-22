@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api', routes);
-
+console.log('Environment vars: ', process.env);
 app.listen($PORT || 3000, () => {
   console.log(`listening on port ${$PORT || 3000}`);
 });
