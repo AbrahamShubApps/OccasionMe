@@ -7,14 +7,15 @@ const env       = process.env.NODE_ENV || 'development';
 const config    = require(__dirname + '/../config/config.json')[env];
 
 if (!global.hasOwnProperty('db')) {
+  global.db = {};
   var Sequelize = require('sequelize')
     , sequelize = null
   if (env === 'production') {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
-      port:     match[4],
-      host:     match[3],
+      port:     5432,
+      host:     process.env.DATABASE_HOST,
       logging:  true //false
     });
   } else if (config.use_env_variable) {

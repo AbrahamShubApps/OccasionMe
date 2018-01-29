@@ -8,6 +8,7 @@
     "db-setup-dev": "createdb occasionme-dev",
     "db-setup-prod": "createdb occasionme-prod",
     "db-migrate": "sequelize db:migrate",
+    "db-seed": "sequelize db:seed:all",
     "global-installs": "npm install -g pg pg-hstore sequelize react-scripts sequelize-cli",
     "run start": "node server",
     "build-bundle": "cd web_client && npm install && npm run build && cd ../",
